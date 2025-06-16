@@ -19,7 +19,8 @@
 
         <TextView
             android:id="@+id/createText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textAlignment="viewStart"
             android:text="Create"
@@ -27,14 +28,15 @@
             android:textColor="@color/lavender"
             android:layout_marginStart="12dp"
             android:layout_marginTop="5dp"
-            android:textSize="25dp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_clear_24"
-            android:layout_marginLeft="250dp"
             android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:backgroundTint="@color/lavender"
             android:id="@+id/cancelButton"/>
 
     </LinearLayout>
@@ -45,7 +47,6 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:padding="10dp">
 
         <ImageView
