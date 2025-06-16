@@ -172,3 +172,5 @@ The code style in this project was ensured using [Detekt](https://detekt.dev/).
 
 ## Contributing
 Just make pull request. You are in!
+
+https://github.com/AliAsadi/Android-Clean-Architecture.git
