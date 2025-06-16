@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_remove_24"
+        android:src="@drawable/ic_baseline_remove_24"
         android:layout_gravity="center|top"
         android:scaleType="centerCrop"/>
 
@@ -32,7 +32,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_clear_24"
+            android:src="@drawable/ic_baseline_clear_24"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="8dp"
             android:id="@+id/cancelButton"/>
@@ -51,7 +51,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_upload_24"/>
+            android:src="@drawable/ic_baseline_upload_24"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_whatshot_24"/>
+            android:src="@drawable/ic_baseline_whatshot_24"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_vibration_24"/>
+            android:src="@drawable/ic_baseline_vibration_24"/>
 
         <TextView
             android:layout_width="wrap_content"
