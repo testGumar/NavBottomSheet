@@ -2,7 +2,6 @@ package com.app.nbapp
 
 import android.app.Dialog
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -13,16 +12,14 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.ui.AppBarConfiguration
 import com.app.nbapp.databinding.ActivityMainBinding
 import com.app.nbapp.fragments.HomeFragment
 import com.app.nbapp.fragments.LibraryFragment
 import com.app.nbapp.fragments.ShortsFragment
 import com.app.nbapp.fragments.SubscriptionFragment
-import androidx.core.graphics.drawable.toDrawable
 
 
 class MainActivity : AppCompatActivity() {
@@ -56,29 +53,30 @@ class MainActivity : AppCompatActivity() {
 //        }
         replaceFragment(HomeFragment())
 
-        binding.bottomNavigationView.setBackground(null)
-        binding.bottomNavigationView.setOnItemSelectedListener({ item ->
-            when (item.getItemId()) {
+        binding.bottomNavigationView.background = null
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.home -> replaceFragment(HomeFragment())
                 R.id.shorts -> replaceFragment(ShortsFragment())
                 R.id.subscriptions -> replaceFragment(SubscriptionFragment())
                 R.id.library -> replaceFragment(LibraryFragment())
             }
             true
-        })
+        }
 
-        binding.fab.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                showBottomDialog()
-            }
-        })
+        binding.fab.setOnClickListener {
+            showBottomDialog()
+        }
+
+//        binding.fab.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(view: View?) {
+//                showBottomDialog()
+//            }
+//        })
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager: FragmentManager = getSupportFragmentManager()
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
-        fragmentTransaction.commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
     }
 
     private fun showBottomDialog() {
