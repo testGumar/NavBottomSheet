@@ -22,6 +22,7 @@ import com.app.nbapp.fragments.HomeFragment
 import com.app.nbapp.fragments.LibraryFragment
 import com.app.nbapp.fragments.ShortsFragment
 import com.app.nbapp.fragments.SubscriptionFragment
+import androidx.core.graphics.drawable.toDrawable
 
 
 class MainActivity : AppCompatActivity() {
@@ -120,11 +121,11 @@ class MainActivity : AppCompatActivity() {
         })
 
         dialog.show()
-        dialog.getWindow()!!
+        dialog.window!!
             .setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.getWindow()!!.getAttributes().windowAnimations = R.style.DialogAnimation
-        dialog.getWindow()!!.setGravity(Gravity.BOTTOM)
+        dialog.window!!.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
+        dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
+        dialog.window!!.setGravity(Gravity.BOTTOM)
     }
 
 //    override fun onSupportNavigateUp(): Boolean {
