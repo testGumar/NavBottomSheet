@@ -1,6 +1,14 @@
 [versions]
 agp = "8.10.0"
 kotlin = "2.0.21"
+#kotlin = "1.9.23"
+#ksp = "1.9.23-1.0.20"
+ksp = "2.0.21-1.0.28"
+hiltGradlePlugin = "2.56.2"
+#hiltGradlePlugin = "2.51.1"
+
+hilt = "1.2.0"
+
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -10,6 +18,12 @@ material = "1.12.0"
 constraintlayout = "2.2.1"
 navigationFragmentKtx = "2.9.0"
 navigationUiKtx = "2.9.0"
+
+okhttp = "5.0.0-alpha.14"
+gson = "2.11.0"
+retrofit = "2.11.0"
+
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -22,7 +36,33 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
+#okhttp
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+
+#retrofit2-kotlin-coroutines-adapter = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "retrofit2KotlinCoroutinesAdapter" }
+
+# Hilt
+hilt-dagger-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltGradlePlugin" }
+## Keep the Dagger and Hilt compiler in place; removing it could reintroduce the bug related to injecting SyncWork
+hilt-dagger-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltGradlePlugin" } # Don't remove
+hilt-dagger-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltGradlePlugin" } # Don't remove
+hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt" } # Don't remove
+hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt" }
+
+#Componse
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-runtime = { module = "androidx.compose.runtime:runtime" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltGradlePlugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

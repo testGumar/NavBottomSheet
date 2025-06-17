@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -46,6 +48,25 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // networking
+    // okHttp + GSON + Retrofit
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    // GSON
+    implementation(libs.gson)
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+//    implementation(libs.retrofit2.kotlin.coroutines.adapter)
+
+    // dagger hilt
+    implementation(libs.hilt.dagger.android)
+    ksp(libs.hilt.dagger.android.compiler)
+
+    //composable
+//    implementation(libs.compose.runtime) // compose runtime only
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
