@@ -1,14 +1,13 @@
 package com.app.composableapp.di
 
-import com.app.composableapp.ui.feature.store.data.remote.AppApi
-import com.app.composableapp.util.Constant
+import com.app.composableapp.data.remote.AppApi
+import com.app.composableapp.presentation.util.Constant
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 

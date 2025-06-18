@@ -16,10 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
-import com.app.composableapp.ui.feature.store.presentation.products_screen.ProductScreen
-import com.app.composableapp.ui.theme.ComposableAppTheme
-import com.app.composableapp.util.Event
-import com.app.composableapp.util.EventBus
+import com.app.composableapp.presentation.products_screen.ProductScreen
+import com.app.composableapp.presentation.ui.theme.ComposableAppTheme
+import com.app.composableapp.presentation.util.Event
+import com.app.composableapp.presentation.util.EventBus
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

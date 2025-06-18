@@ -1,7 +1,7 @@
 package com.app.composableapp.di
 
-import com.app.composableapp.ui.feature.store.data.repo.ProductRepoImpl
-import com.app.composableapp.ui.feature.store.domain.repo.ProductRepo
+import com.app.composableapp.data.repo.ProductRepoImpl
+import com.app.composableapp.domain.repo.ProductRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
