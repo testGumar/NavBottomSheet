@@ -1,0 +1,22 @@
+version: '3.8'
+# docker compose for budtmo/docker-android
+services:
+  android-emulator:
+    image: budtmo/docker-android:emulator_14.0
+    # user: root
+    privileged: true
+    ports:
+      - "6080:6080" # VNC web access
+      - "5555:5555" # Emulator communication (ADB)
+      - "5037:5037" # ADB server
+    environment:
+      - EMULATOR_DEVICE=Samsung Galaxy S10
+      - WEB_VNC=true
+      - ADB_SERVER_PORT=5037
+    devices:
+      - /dev/kvm
+    container_name: android-container
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    restart: unless-stopped
