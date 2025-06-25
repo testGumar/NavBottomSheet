@@ -86,3 +86,18 @@ docker volume rm docker-android_data
 docker-compose up -d
 
 D:\AndroidLocal\Flutter\flutterSDK\bin\cache\dart-sdk
+
+D:\AndroidLocal\workspace\flutter_module\.android\include_flutter.groovy
+
+cd flutter_module/.android
+./gradlew :flutter:assembleDebug
+
+ flutter build apk --debug
+ ensure the .apk must be there inside below folder
+ComposableApp\flutter_module\.android\Flutter\build\intermediates\flutter\debug
+
+./gradlew :flutter:dependencies
+
+//working command for adding flutter module
+flutter create -t module --org com.test.flutter flutter_module
+flutter attach

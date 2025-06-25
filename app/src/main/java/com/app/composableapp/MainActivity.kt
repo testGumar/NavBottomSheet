@@ -29,7 +29,6 @@ import com.app.composableapp.presentation.ui.theme.ComposableAppTheme
 import com.app.composableapp.presentation.util.Event
 import com.app.composableapp.presentation.util.EventBus
 import dagger.hilt.android.AndroidEntryPoint
-import io.flutter.embedding.android.FlutterActivity
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

@@ -27,9 +27,9 @@ android {
     }
 
     buildTypes {
-        create("profile") {
-            initWith(getByName("debug"))
-        }
+//        create("profile") {
+//            initWith(getByName("debug"))
+//        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -48,14 +48,15 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
 
-//    implementation(project(":flutter"))
-    debugImplementation("com.example.flutter_module:flutter_debug:1.0")
-    releaseImplementation("com.example.flutter_module:flutter_release:1.0")
-    add("profileImplementation", "com.example.flutter_module:flutter_profile:1.0")
+    implementation(project(":flutter"))
+//    debugImplementation("com.example.flutter_module:flutter_debug:1.0")
+//    releaseImplementation("com.example.flutter_module:flutter_release:1.0")
+//    add("profileImplementation", "com.example.flutter_module:flutter_profile:1.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
