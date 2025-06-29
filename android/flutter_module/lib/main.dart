@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Home Page'),
     );
   }
 }
@@ -45,9 +46,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  static const platform = MethodChannel('com.example.channel');
 
-  void _incrementCounter() {
+  @override
+  void initState() {
+    super.initState();
+    platform.setMethodCallHandler((call) async {
+      if (call.method == "sendToFlutter") {
+        print("Received from Android: ${call.arguments}");
+      }
+    });
+  }
+  int _counter = 0;
+  
+  void _incrementCounter() async  {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -56,7 +68,25 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+    final data = {
+      "name": "Umar Sayed",
+      "age": 30,
+    };
+    try {
+      final response = await platform.invokeMethod('sendToNative', data);
+      print("Android says: $response");
+    } catch (e) {
+      print("Error sending to native: $e");
+    }
+
   }
+
+  @override
+  void dispose() {
+    platform.setMethodCallHandler(null);
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {

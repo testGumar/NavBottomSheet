@@ -1,5 +1,6 @@
-import React from 'react';
 import {
+  Button,
+  NativeModules,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -16,11 +17,19 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-function App(): React.JSX.Element {
+// function App(): React.JSX.Element {
+const App = (props: any): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
+  const { username, userId } = props;
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+   // ✨ Add your click handler
+  const handlePress = () => {
+    // Alert.alert('Hello!', `Hey ${username}, your ID is ${userId}`);
+    NativeModules.MyDataReceiver.sendDataToNative({ msg: "Bridge operational, captain! 🚀", timestamp: Date.now() });
   };
 
   return (
@@ -48,7 +57,14 @@ function App(): React.JSX.Element {
           <Text style={styles.title}>See your changes</Text>
           <ReloadInstructions />
           <Text style={styles.title}>Debug</Text>
+          <Text>Welcome, <Text style={styles.bold}>{username}!</Text></Text>
+          <Text>Your user ID is <Text style={styles.bold}>{userId}</Text></Text>
           <DebugInstructions />
+
+           {/* ✨ Add the button here */}
+          <View style={{ marginTop: 20 }}>
+            <Button title="Click Me" onPress={handlePress} />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

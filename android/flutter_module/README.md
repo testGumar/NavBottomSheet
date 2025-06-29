@@ -9,3 +9,6 @@ For help getting started with Flutter development, view the online
 
 For instructions integrating Flutter modules to your existing applications,
 see the [add-to-app documentation](https://flutter.dev/to/add-to-app).
+
+goto flutter_module folder and then run below command
+flutter attach --target=lib/main.dart
