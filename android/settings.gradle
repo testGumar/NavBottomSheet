@@ -1,0 +1,44 @@
+ pluginManagement {
+    includeBuild("../node_modules/@react-native/gradle-plugin")
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+ }
+plugins {
+    id("com.facebook.react.settings")
+}
+// Configure autolinking behavior
+extensions.configure(com.facebook.react.ReactSettingsExtension) { reactSettings ->
+    reactSettings.autolinkLibrariesFromCommand()
+}
+
+ dependencyResolutionManagement {
+     // for flutter
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://storage.googleapis.com/download.flutter.io"
+        }
+    }
+ }
+
+ includeBuild("../node_modules/@react-native/gradle-plugin")
+
+ rootProject.name = "native_app_with_flutter_module"
+ include ':app'
+
+ // Flutter module.
+ setBinding(new Binding([gradle: this]))           // new
+ def filePath = settingsDir.toString() + "/flutter_module/.android/include_flutter.groovy" // new
+ apply from: filePath

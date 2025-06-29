@@ -1,0 +1,72 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+.gitsfsdf
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+app-example
+
+#added later by US
+# Node modules and logs
+node_modules/
+npm-debug.*
+yarn-error.log
+
+# Expo and Metro files
+.expo/
+.expo-shared/
+.expo-source/
+
+# macOS system files
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS-specific junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Environment files
+.env*
+.env.local
+
+# Optional: Ignore build artifacts (if using EAS Build locally)
+dist/
+build/
